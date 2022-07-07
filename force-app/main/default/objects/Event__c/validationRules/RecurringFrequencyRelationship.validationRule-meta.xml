@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RecurringFrequencyRelationship</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( Recurring__c, ISPICKVAL( Frequency__c, &quot;&quot;), NOT(ISPICKVAL( Frequency__c, &quot;&quot;)))</errorConditionFormula>
+    <errorMessage>If Event is recurring Frequency field must be set.</errorMessage>
+</ValidationRule>

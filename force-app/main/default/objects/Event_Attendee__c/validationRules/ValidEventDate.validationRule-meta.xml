@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidEventDate</fullName>
+    <active>true</active>
+    <errorConditionFormula>( Event__r.End_Date_Time__c - NOW()) &lt;= 0</errorConditionFormula>
+    <errorMessage>Event must be in the future.</errorMessage>
+</ValidationRule>

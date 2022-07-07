@@ -1,15 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>ErrorLogHandler</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>InactiveAttendees</members>
+		<members>Setting_Event_Attendee</members>
+		<name>Flow</name>
+	</types>
+	<types>
+		<members>Attendee__c.EmailPhoneNameDuplicate_matching_rule</members>
+		<members>Event_Organizer__c.EmailPhoneDuplicate</members>
+		<members>Speaker__c.EmailPhoneDuplicate_matching_rule</members>
+		<name>MatchingRule</name>
+	</types>
+	<types>
+		<members>Attendee__c</members>
+		<members>Event_Organizer__c</members>
+		<members>Speaker__c</members>
+		<name>MatchingRules</name>
+	</types>
+	<types>
+		<members>Event Attendee</members>
+		<members>Event Organizer</members>
+		<members>Speaker</members>
+		<name>Profile</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>Role</name>
+	</types>
+	<types>
 		<members>Attendee__c</members>
 		<members>Error_Log__c</members>
-		<members>EventSpeakers__c</members>
-		<members>Event_Attendee__c</members>
 		<members>Event_Organizer__c</members>
-		<members>Event__c</members>
 		<members>Location__c</members>
 		<members>Speaker__c</members>
-		<name>CustomObject</name>
+		<name>SharingRules</name>
+	</types>
+	<types>
+		<members>EventSpeakers__c.IsEventLive</members>
+		<members>EventSpeakers__c.ValidEventDate</members>
+		<members>Event_Attendee__c.EventNotFull</members>
+		<members>Event_Attendee__c.IsEventLive</members>
+		<members>Event_Attendee__c.ValidEventDate</members>
+		<members>Event__c.EventLastsAtleastADay</members>
+		<members>Event__c.InPersonHaveLocation</members>
+		<members>Event__c.RecurringFrequencyRelationship</members>
+		<members>Event__c.VrtualHasNoLocation</members>
+		<name>ValidationRule</name>
 	</types>
 	<version>53.0</version>
 </Package>
