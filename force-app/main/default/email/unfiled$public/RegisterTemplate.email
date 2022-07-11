@@ -1,0 +1,5 @@
+Dear {! Event_Attendee__c.Name},
+Thank you for registering for {! Event_Attendee.Event__r.Name__c} which will be Organized on {! Event_Attendee.Event__r.Start_DateTime__c} & will be held in {! Event_Attendee.Event__r.Location__c}. We are excited to have you, see you in the event.
+Find the Google Map Location for the Event Here. (https://www.google.com/maps/place/{! Event_Attendee.Event__r.Location__c})
+Thanks,
+{! Event_Attendee.Event__r.Event_Organizer__r.Name}
