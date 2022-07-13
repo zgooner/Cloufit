@@ -9,13 +9,13 @@ public class EventAttendeeTriggerHandler implements TriggerHandler {
     }
     
     public void beforeInsert(List<Event_Attendee__c> newEventAttendees) {
-
+		
     }
     public void beforeUpdate(List<Event_Attendee__c> oldEventAttendees, List<Event_Attendee__c> newEventAttendees, Map<ID, SObject> oldEventAttendeesMap, Map<ID, SObject> newEventAttendeesMap) {
 
     }
     public void beforeDelete(List<Event_Attendee__c> oldEventAttendees, Map<ID, SObject> oldEventAttendeesMap) {
-
+        
     }
     public void afterInsert(List<Event_Attendee__c> newEventAttendees, Map<ID, SObject> newEventAttendeesMap) {
 		helper.sendEmailAfterRegistration(newEventAttendees);
@@ -24,9 +24,9 @@ public class EventAttendeeTriggerHandler implements TriggerHandler {
 
     }
     public void afterDelete(List<Event_Attendee__c> oldEventAttendees, Map<ID, SObject> oldEventAttendeesMap) {
-
+        
     }
     public void afterUndelete(List<Event_Attendee__c> newEventAttendees, Map<ID, SObject> newEventAttendeesMap) {
-
+        
     }
 }

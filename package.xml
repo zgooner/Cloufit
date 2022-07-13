@@ -4,11 +4,13 @@
 		<members>EmailHandler</members>
 		<members>EventAttendeeTriggerHandler</members>
 		<members>EventAttendeeTriggerHelper</members>
+		<members>EventAttendeeTriggerTest</members>
 		<members>EventSpeakerTriggerHandler</members>
 		<members>EventSpeakerTriggerHelper</members>
 		<members>EventSpeakerTriggerTest</members>
+		<members>LocationTriggerHandler</members>
+		<members>LocationTriggerHelper</members>
 		<members>TestDataFactory</members>
-		<members>TriggerHandler</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -16,8 +18,9 @@
 		<name>ApexTrigger</name>
 	</types>
 	<types>
-		<members>unfiled$public/RegisterTemplate</members>
-		<name>EmailTemplate</name>
+		<members>Smarty_Streets</members>
+		<members>Smarty_Streets_API</members>
+		<name>RemoteSiteSetting</name>
 	</types>
 	<version>53.0</version>
 </Package>

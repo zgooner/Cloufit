@@ -9,7 +9,7 @@ public class EmailHandler {
             attendeeIds.add(c.Attendee__c);
         }
         
-        List<Event_Attendee__c> evAttendees = [SELECT Id, Attendee__r.Email__c, Event__c FROM Event_Attendee__c WHERE Id IN :attendeeIds];
+        List<Event_Attendee__c> evAttendees = [SELECT Id, Attendee__r.Email__c, Event__c FROM Event_Attendee__c WHERE Attendee__c IN :attendeeIds];
         
         for (Event_Attendee__c c : evAttendees) {
             Messaging.SingleEmailMessage msg = new Messaging.SingleEmailMessage();
@@ -20,7 +20,7 @@ public class EmailHandler {
    			msg.setSaveAsActivity(false);
             
         	msg.setTemplateId(template.Id);
-        	msg.setWhatId(c.Id);
+        	//msg.setWhatId(c.Id);
         	msg.toAddresses = new String[] {c.Attendee__r.Email__c};
             messages.add(msg);
         }
