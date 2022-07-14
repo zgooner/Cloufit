@@ -9,7 +9,7 @@ public class LocationTriggerHandler implements TriggerHandler {
     }
     
     public void beforeInsert(List<Location__c> newLocations) {
-
+		
     }
     public void beforeUpdate(List<Location__c> oldLocations, List<Location__c> newLocations, Map<ID, SObject> oldLocationsMap, Map<ID, SObject> newLocationsMap) {
 

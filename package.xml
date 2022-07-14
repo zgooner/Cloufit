@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>BatchHandler</members>
+		<members>ClearingEventsBatch</members>
+		<members>ClearingEventsBatchTest</members>
+		<members>DailyBatchScheduler</members>
 		<members>EmailHandler</members>
-		<members>EventAttendeeTriggerHandler</members>
-		<members>EventAttendeeTriggerHelper</members>
-		<members>EventAttendeeTriggerTest</members>
-		<members>EventSpeakerTriggerHandler</members>
-		<members>EventSpeakerTriggerHelper</members>
-		<members>EventSpeakerTriggerTest</members>
 		<members>LocationTriggerHandler</members>
 		<members>LocationTriggerHelper</members>
+		<members>LocationTriggerTest</members>
+		<members>MockHttpResponseGenerator</members>
+		<members>SmartyStreetsService</members>
 		<members>TestDataFactory</members>
 		<name>ApexClass</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>ApexTrigger</name>
-	</types>
-	<types>
-		<members>Smarty_Streets</members>
-		<members>Smarty_Streets_API</members>
-		<name>RemoteSiteSetting</name>
 	</types>
 	<version>53.0</version>
 </Package>
