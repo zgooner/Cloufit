@@ -2,9 +2,11 @@
     <lightning-card>
         <lightning-tabset variant="scoped" active-tab-value="0">
             <lightning-tab label="Event Details">
-                <c-event-detail-tab-component></c-event-detail-tab-component>
+                <c-event-detail-tab-component object-api-name={objectApiName} record-id={recordId}></c-event-detail-tab-component>
             </lightning-tab>
-            <lightning-tab label="Speaker Details"></lightning-tab>
+            <lightning-tab label="Speaker Details">
+                <c-speaker-detail-tab-component></c-speaker-detail-tab-component>
+            </lightning-tab>
             <lightning-tab label="Location Details"></lightning-tab>
             <lightning-tab label="Attendee Details"></lightning-tab>
         </lightning-tabset>

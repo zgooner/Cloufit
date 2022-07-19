@@ -1,4 +1,4 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement, api, track } from 'lwc';
 
 import Event_NameId from '@salesforce/schema/Event__c.Name';
 import Event_Name from '@salesforce/schema/Event__c.Name__c';
@@ -23,8 +23,8 @@ import Event_LastModifDate from '@salesforce/schema/Event__c.LastModifiedDate';
 
 
 export default class EventDetailTabComponent extends LightningElement {
-    @api objectApiName = 'Event__c';
-    @api recordId = 'a017Q00000r01r5QAA';
+    @api objectApiName;
+    @api recordId;
 
     eventId = Event_NameId;
     eventName = Event_Name;
@@ -46,5 +46,4 @@ export default class EventDetailTabComponent extends LightningElement {
     eventDetail = Event_Detail;
     eventCreateDate = Event_CreatedDate;
     eventLastModifDate = Event_LastModifDate;
-
 }
