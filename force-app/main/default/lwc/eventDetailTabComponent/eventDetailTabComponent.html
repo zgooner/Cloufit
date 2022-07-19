@@ -1,0 +1,76 @@
+<template>
+    <lightning-record-view-form 
+        object-api-name={objectApiName}
+        record-id={recordId}
+        density="Compact"
+        >
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-2">
+                    <!-- Your lightning-output-field components here -->
+                    <lightning-output-field field-name={eventId}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventName}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventStartDateTime}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventIsRecurring}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventMaxSeats}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventRemainingSeats}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventIsLive}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventIsLocVerified}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventCreatedBy}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventLastModifId}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <!-- More lightning-output-field components here -->
+                    <lightning-output-field field-name={eventLocationName}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventStatus}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventOrganizerName}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventEndDateTime}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventPeopleAttending}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventType}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventFreq}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventDetail}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventCreateDate}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                    <lightning-output-field field-name={eventLastModifDate}>
+                        <div class="slds-border_bottom"></div>
+                    </lightning-output-field>
+                </div>
+            </div>
+    </lightning-record-view-form>
+</template>
