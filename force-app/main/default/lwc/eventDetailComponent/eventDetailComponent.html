@@ -10,7 +10,9 @@
             <lightning-tab label="Event Location">
                 <c-location-detail-tab-component event-record-id={recordId}></c-location-detail-tab-component>
             </lightning-tab>
-            <lightning-tab label="Attendee Details"></lightning-tab>
+            <lightning-tab label="Event Attendees">
+                <c-attendees-detail-tab-component event-record-id={recordId}></c-attendees-detail-tab-component>
+            </lightning-tab>
         </lightning-tabset>
     </lightning-card>
 </template>
