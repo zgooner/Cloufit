@@ -4,10 +4,12 @@
             <lightning-tab label="Event Details">
                 <c-event-detail-tab-component object-api-name={objectApiName} record-id={recordId}></c-event-detail-tab-component>
             </lightning-tab>
-            <lightning-tab label="Speaker Details">
-                <c-speaker-detail-tab-component></c-speaker-detail-tab-component>
+            <lightning-tab label="Event Speakers">
+                <c-speaker-detail-tab-component event-record-id={recordId}></c-speaker-detail-tab-component>
             </lightning-tab>
-            <lightning-tab label="Location Details"></lightning-tab>
+            <lightning-tab label="Event Location">
+                <c-location-detail-tab-component event-record-id={recordId}></c-location-detail-tab-component>
+            </lightning-tab>
             <lightning-tab label="Attendee Details"></lightning-tab>
         </lightning-tabset>
     </lightning-card>

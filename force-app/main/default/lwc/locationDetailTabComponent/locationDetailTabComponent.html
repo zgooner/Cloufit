@@ -1,0 +1,17 @@
+<template>
+    <template for:each={locationDetails.data} for:item='details'>
+        <div key={details.id}>
+            <lightning-formatted-text value={details.Land_Mark__c}></lightning-formatted-text>
+            <lightning-formatted-address 
+                street={details.Street__c}
+                city={details.City__c}
+                country={details.Country__c}
+                province={details.State__c}
+                postal-code={details.Postal_Code__c}
+            ></lightning-formatted-address>
+        </div>
+    </template>
+    <template if:true={locationDetails.error}>
+        {speakers.error}
+    </template>
+</template>

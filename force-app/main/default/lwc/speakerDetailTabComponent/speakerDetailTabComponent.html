@@ -1,3 +1,15 @@
 <template>
-    <lightning-avatar src={avatarLink} size="large"></lightning-avatar>
+    <template for:each={speakers.data} for:item="speaker">
+        <div class="tile" key={speaker.id}>
+            <lightning-avatar class="avtr" src={avatarLink} size="large"></lightning-avatar>
+            <div class="text">
+                <p><lightning-formatted-text value={speaker.Name}></lightning-formatted-text></p>
+                <p><lightning-formatted-email value={speaker.Email__c}></lightning-formatted-email></p>
+                <p><lightning-formatted-text value={speaker.Company__c}></lightning-formatted-text></p>
+            </div>
+        </div>
+    </template>
+    <template if:true={speakers.error}>
+        {speakers.error}
+    </template>
 </template>

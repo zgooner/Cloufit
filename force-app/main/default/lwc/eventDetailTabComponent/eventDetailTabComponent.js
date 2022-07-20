@@ -46,4 +46,5 @@ export default class EventDetailTabComponent extends LightningElement {
     eventDetail = Event_Detail;
     eventCreateDate = Event_CreatedDate;
     eventLastModifDate = Event_LastModifDate;
+    
 }

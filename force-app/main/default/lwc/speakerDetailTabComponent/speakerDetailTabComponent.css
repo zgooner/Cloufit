@@ -1,0 +1,14 @@
+.tile {
+    display: flex;
+    align-items: center;
+    margin: 5px 0 5px;
+}
+
+.avtr, .text {
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    margin-left: 5px;
+}
