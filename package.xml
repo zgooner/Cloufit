@@ -5,7 +5,7 @@
 		<name>LightningComponentBundle</name>
 	</types>
 	<types>
-		<members>AttendeeController</members>
+		<members>EventController</members>
 		<name>ApexClass</name>
 	</types>
 	<version>53.0</version>
