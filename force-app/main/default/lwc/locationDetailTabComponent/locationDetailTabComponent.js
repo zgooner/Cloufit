@@ -4,6 +4,6 @@ import getEventLocation from '@salesforce/apex/LocationController.getEventLocati
 export default class LocationDetailTabComponent extends LightningElement {
     @api eventRecordId;
 
-    @wire(getEventLocation, {eventId: '$eventRecordId'})
+    @wire(getEventLocation, {eventId: "$eventRecordId"})
     locationDetails;
 }

@@ -2,7 +2,10 @@
     <lightning-card>
         <lightning-datatable
             key-field="Id"
-            data={events.data}
-            columns={columns}></lightning-datatable>
+            data={allEvents}
+            columns={columns}
+            onrowaction={handleRowAction}
+            hide-checkbox-column>
+            </lightning-datatable>
     </lightning-card>
 </template>

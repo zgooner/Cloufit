@@ -5,8 +5,16 @@
 		<name>LightningComponentBundle</name>
 	</types>
 	<types>
+		<members>EventOrganizerController</members>
 		<members>EventController</members>
+		<members>SpeakerController</members>
+		<members>LocationController</members>
+		<members>AttendeeController</members>
 		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>navigateToEventDetails</members>
+		<name>AuraDefinitionBundle</name>
 	</types>
 	<version>53.0</version>
 </Package>
