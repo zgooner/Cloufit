@@ -19,7 +19,7 @@ export default class CustomLookup extends LightningElement {
     @track records;
     @track selectedRecord;
 
-    hanldeSearch(event) {
+    handleSearch(event) {
 
         var searchVal = event.detail.value;
 

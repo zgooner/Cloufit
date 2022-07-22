@@ -1,5 +1,6 @@
 import { LightningElement, wire, track } from 'lwc';
 import getCurrentEvents from '@salesforce/apex/EventController.getCurrentEvents';
+import getSpecifiedEvents from '@salesforce/apex/EventController.getSpecifiedEvents';
 import { NavigationMixin } from 'lightning/navigation';
 
 const columns = [
@@ -46,12 +47,28 @@ const columns = [
 export default class EventListComponent extends NavigationMixin(LightningElement) {
     columns = columns;
     @track allEvents = [];
+    @track pickedEventId = undefined;
+    @track pickedLocationId = undefined;
+    @track pickedDateTime = undefined;
     error;
 
     @wire(getCurrentEvents)
     wiredEvents({error, data}) {
         if (data) {
-            let eventsArray = [];
+            this.allEvents = this.flattenData(data);
+        } else if (error) this.error = error;
+    }
+
+    _flatten = (nodeValue, flattenedRow, nodeName) => {
+        let rowKeys = Object.keys(nodeValue);
+        rowKeys.forEach((key) => {
+            let finalKey = nodeName + '.' + key;
+            flattenedRow[finalKey] = nodeValue[key];
+        })
+    }
+
+    flattenData(data) {
+        let eventsArray = [];
 
             for (let row of data) {
                 const flattenedRow = {};
@@ -66,21 +83,12 @@ export default class EventListComponent extends NavigationMixin(LightningElement
 
                 eventsArray.push(flattenedRow);
             }
-            this.allEvents = eventsArray;
-        } else if (error) this.error = error;
-    }
-
-    _flatten = (nodeValue, flattenedRow, nodeName) => {
-        let rowKeys = Object.keys(nodeValue);
-        rowKeys.forEach((key) => {
-            let finalKey = nodeName + '.' + key;
-            flattenedRow[finalKey] = nodeValue[key];
-        })
+        return eventsArray;
     }
 
     handleRowAction(event) {
         let eventId = JSON.stringify(event.detail.row.Id).replaceAll('\"', '');
-        console.log('data: ' + JSON.stringify(event.detail.row.Id));
+
         this[NavigationMixin.Navigate]({
             type: "standard__component",
             attributes: {
@@ -91,4 +99,39 @@ export default class EventListComponent extends NavigationMixin(LightningElement
             }
         });
     }
+
+    handleEventLookup(event) {
+        this.pickedEventId = event.detail.selectedRecordId;
+        this.handleTableChange();
+    }
+
+    handleLocationLookup(event) {
+        this.pickedLocationId = event.detail.selectedRecordId;
+        this.handleTableChange();
+    }
+
+    handleDateChange(event) {
+        this.pickedDateTime = event.detail.value;
+        this.handleTableChange();
+    }
+
+    handleTableChange() {
+        
+        getSpecifiedEvents({
+            eventId: this.pickedEventId,
+            locationId: this.pickedLocationId,
+            selectedDateTime: this.pickedDateTime
+        })
+        .then( data => {
+            if (data) {
+                this.allEvents = this.flattenData(data);
+            }
+            console.log(JSON.stringify(data));
+            console.log(this.allEvents);
+        })
+        .catch((error) => {
+            window.console.log(' error ', error);
+        })
+    }
+
 }

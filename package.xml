@@ -5,7 +5,6 @@
 		<name>LightningComponentBundle</name>
 	</types>
 	<types>
-		<members>EventOrganizerController</members>
 		<members>EventController</members>
 		<members>SpeakerController</members>
 		<members>LocationController</members>
