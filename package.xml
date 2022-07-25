@@ -9,6 +9,7 @@
 		<members>SpeakerController</members>
 		<members>LocationController</members>
 		<members>AttendeeController</members>
+		<members>EventDetailRestAPI</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
