@@ -1,4 +1,5 @@
 <template>
+    <lightning-button label="New Event Speaker" onclick={handleClick}></lightning-button>
     <template for:each={speakers.data} for:item="speaker">
         <div class="tile" key={speaker.id}>
             <lightning-avatar class="avtr" src={avatarLink} size="large"></lightning-avatar>
