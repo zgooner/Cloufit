@@ -9,4 +9,9 @@ public with sharing class SpeakerController {
         return speakersWithEvents;
     }
 
+    @AuraEnabled(cacheable=true)
+    public static List<Speaker__c> getAllSpeakers() {
+        return [SELECT Id, Name, Email__c, About_Me__c FROM Speaker__c];
+    }
+
 }
