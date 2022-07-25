@@ -2,6 +2,7 @@ import { LightningElement, wire, track } from 'lwc';
 import getCurrentEvents from '@salesforce/apex/EventController.getCurrentEvents';
 import getSpecifiedEvents from '@salesforce/apex/EventController.getSpecifiedEvents';
 import { NavigationMixin } from 'lightning/navigation';
+import { flattenData } from 'c/utilityModulesHelper';
 
 const columns = [
     {
@@ -55,35 +56,8 @@ export default class EventListComponent extends NavigationMixin(LightningElement
     @wire(getCurrentEvents)
     wiredEvents({error, data}) {
         if (data) {
-            this.allEvents = this.flattenData(data);
+            this.allEvents = flattenData(data);
         } else if (error) this.error = error;
-    }
-
-    _flatten = (nodeValue, flattenedRow, nodeName) => {
-        let rowKeys = Object.keys(nodeValue);
-        rowKeys.forEach((key) => {
-            let finalKey = nodeName + '.' + key;
-            flattenedRow[finalKey] = nodeValue[key];
-        })
-    }
-
-    flattenData(data) {
-        let eventsArray = [];
-
-            for (let row of data) {
-                const flattenedRow = {};
-                let rowKeys = Object.keys(row);
-                rowKeys.forEach((rowKey) => {
-                    const singleNodeValue = row[rowKey];
-
-                    if (singleNodeValue.constructor === Object) {
-                        this._flatten(singleNodeValue, flattenedRow, rowKey)
-                    } else flattenedRow[rowKey] = singleNodeValue;
-                });
-
-                eventsArray.push(flattenedRow);
-            }
-        return eventsArray;
     }
 
     handleRowAction(event) {
@@ -124,7 +98,7 @@ export default class EventListComponent extends NavigationMixin(LightningElement
         })
         .then( data => {
             if (data) {
-                this.allEvents = this.flattenData(data);
+                this.allEvents = flattenData(data);
             }
             console.log(JSON.stringify(data));
             console.log(this.allEvents);

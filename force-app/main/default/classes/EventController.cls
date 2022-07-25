@@ -27,4 +27,34 @@ public with sharing class EventController {
         if (eventId == null && locationId == null && selectedDateTime == null) return getCurrentEvents();
         return Database.query(query);
     }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Event__c> getAttendeesUpcomingEvents(String attId) {
+        List<Event_Attendee__c> evAtt = [SELECT Id, Event__c, Attendee__c FROM Event_Attendee__c WHERE Attendee__c=:attId];
+        Set<Id> evIds = new Set<Id>();
+        for (Event_Attendee__c evAt : evAtt) {
+            evIds.add(evAt.Event__c);
+        }
+
+        return [SELECT Id, Name__c, Event_Organizer__r.Name, Start_DateTime__c, End_Date_Time__c, Location__r.Name 
+                FROM Event__c 
+                WHERE Id IN :evIds AND
+                End_Date_Time__c >= :System.now()];
+
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Event__c> getAttendeesPastEvents(String attId) {
+        List<Event_Attendee__c> evAtt = [SELECT Id, Event__c, Attendee__c FROM Event_Attendee__c WHERE Attendee__c=:attId];
+        Set<Id> evIds = new Set<Id>();
+        for (Event_Attendee__c evAt : evAtt) {
+            evIds.add(evAt.Event__c);
+        }
+        
+        return [SELECT Id, Name__c, Event_Organizer__r.Name, Start_DateTime__c, End_Date_Time__c ,Location__r.Name 
+                FROM Event__c 
+                WHERE Id IN :evIds AND
+                End_Date_Time__c < :System.now()];
+        
+    }
 }
