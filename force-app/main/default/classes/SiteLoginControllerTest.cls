@@ -8,7 +8,7 @@
         controller.username = 'test@salesforce.com';
         controller.password = '123456'; 
                 
-        System.assertEquals(controller.login(),null);               
-                    
+        System.assertEquals(controller.login(),null);
+                                   
     }    
 }

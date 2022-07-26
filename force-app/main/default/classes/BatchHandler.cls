@@ -8,7 +8,5 @@ public class BatchHandler {
             TotalJobItems, CreatedBy.Email
             FROM AsyncApexJob
             WHERE Id IN :batchProgressIds];
-        
-        System.debug(jobs);
     }
 }

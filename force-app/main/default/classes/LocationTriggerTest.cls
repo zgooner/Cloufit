@@ -29,4 +29,33 @@ public class LocationTriggerTest {
         System.assert(result.success);
         System.assertEquals(false, verifiedLocation.Verified__c);
     }
+    
+    @isTest static void deleteLocation() {
+        MockHttpResponseGenerator mg = new MockHttpResponseGenerator();
+        mg.setValidSmartyResponse();
+        Test.setMock(HttpCalloutMock.class, mg);
+        Location__c location = new Location__c(Name='asdasd', Street__c='aad', City__c='asdhdh', Postal_Code__c='sdad', Country__c='Poland', State__c='asdasd');
+        insert location;
+        
+        Test.startTest();
+        Database.DeleteResult result = Database.delete(location);
+        Test.stopTest();
+        
+        System.assert(result.success);
+    }
+    
+    @isTest static void undeleteLocation() {
+        MockHttpResponseGenerator mg = new MockHttpResponseGenerator();
+        mg.setValidSmartyResponse();
+        Test.setMock(HttpCalloutMock.class, mg);
+        Location__c location = new Location__c(Name='asdasd', Street__c='aad', City__c='asdhdh', Postal_Code__c='sdad', Country__c='Poland', State__c='asdasd');
+        insert location;
+        delete location;
+        
+        Test.startTest();
+        Database.UndeleteResult result = Database.undelete(location);
+        Test.stopTest();
+        
+        System.assert(result.success);
+    }
 }

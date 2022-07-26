@@ -17,13 +17,13 @@ public with sharing class EventController {
             query = query.replace('Location__c=:locationId AND', '');
             query = query.replace('Location__c=:locationId', '');
         }
-        if(selectedDateTime == null) query = query.replace('AND Start_DateTime__c=:convertedDateTime', '');
+        if(selectedDateTime == null) query = query.replace('AND Start_DateTime__c>=:convertedDateTime', '');
         else {
             selectedDateTime = selectedDateTime.replace('T', ' ');
             selectedDateTime = selectedDateTime.replace('0Z', '');
             Datetime convertedDateTime = Datetime.valueOf(selectedDateTime);
         }
-
+		//System.debug(query);
         if (eventId == null && locationId == null && selectedDateTime == null) return getCurrentEvents();
         return Database.query(query);
     }

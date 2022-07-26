@@ -75,6 +75,10 @@ public with sharing class LightningSelfRegisterControllerTest {
   LightningSelfRegisterController controller = new LightningSelfRegisterController();
   System.assertNotEquals(controller, null);
  }
+    
+    @isTest static void test() {
+        LightningSelfRegisterController.setExperienceId('sasdad');
+    }
 
  /* Helper method to initialize the parameters required for SelfRegistration. */
  private static Map < String, String > initializeParams() {
