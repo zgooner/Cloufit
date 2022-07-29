@@ -1,7 +1,10 @@
 <template>
     <template for:each={locationDetails.data} for:item='details'>
         <div key={details.id}>
-            <lightning-formatted-text value={details.Land_Mark__c}></lightning-formatted-text>
+            <template if:true={details.Land_Mark__c}>
+                <p>Location Landmark - </p>
+                <lightning-formatted-text value={details.Land_Mark__c}></lightning-formatted-text>
+            </template>
             <lightning-formatted-address 
                 street={details.Street__c}
                 city={details.City__c}

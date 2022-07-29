@@ -2,21 +2,23 @@
     <lightning-card
     title="Upcoming events"
     icon-name="standard:event">
-        <c-custom-lookup object-name="Event__c" field-name="Name__c"
+        <c-custom-lookup class="slds-m-left_small slds-m-right_small" object-name="Event__c" field-name="Name__c"
         label="Event Name" parentidfield="Events__c" onselect={handleEventLookup}></c-custom-lookup>
 
         <label for="stardatetime"><strong>Start Date Time</strong></label>
-        <lightning-input type="datetime" id="startdatetime" onchange={handleDateChange}></lightning-input>
+        <lightning-input class="slds-m-left_small" type="datetime" id="startdatetime" onchange={handleDateChange}></lightning-input>
 
-        <c-custom-lookup object-name="Location__c" field-name="Name"
+        <c-custom-lookup class="slds-m-left_small slds-m-right_small" object-name="Location__c" field-name="Name"
         label="Event Location" parentidfield="Location__c" onselect={handleLocationLookup}></c-custom-lookup>
-
+        <div class="slds-m-left_small slds-m-right_small">
         <lightning-datatable
+            show-row-number-column
             key-field="Id"
             data={allEvents}
             columns={columns}
             onrowaction={handleRowAction}
             hide-checkbox-column>
             </lightning-datatable>
+        </div>
     </lightning-card>
 </template>

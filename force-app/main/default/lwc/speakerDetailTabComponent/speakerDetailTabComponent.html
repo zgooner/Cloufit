@@ -1,7 +1,7 @@
 <template>
-    <lightning-button label="New Event Speaker" onclick={handleClick}></lightning-button>
+    <lightning-button variant="brand" label="New Speaker" onclick={handleClick}></lightning-button>
     <template for:each={speakers.data} for:item="speaker">
-        <div class="tile" key={speaker.id}>
+        <div class="tile slds-m-top_small" key={speaker.id}>
             <lightning-avatar class="avtr" src={avatarLink} size="large"></lightning-avatar>
             <div class="text">
                 <p><lightning-formatted-text value={speaker.Name}></lightning-formatted-text></p>

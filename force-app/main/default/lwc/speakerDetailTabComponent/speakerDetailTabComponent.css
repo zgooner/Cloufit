@@ -1,7 +1,7 @@
 .tile {
     display: flex;
     align-items: center;
-    margin: 5px 0 5px;
+    margin: 12px 0 12px;
 }
 
 .avtr, .text {

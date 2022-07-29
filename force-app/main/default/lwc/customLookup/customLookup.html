@@ -1,11 +1,11 @@
 <template>
-    <div class="slds-m-padding_around">
+    <div class="slds-m-padding_around slds-m-left_small slds-m-bottom_small slds-m-right_small" >
         <template if:false={selectedRecord} >
             <c-search-component onsearch={handleSearch} search-label={label}
                 isrequired="true" ></c-search-component>
         </template>
     </div>
-    <div class="slds-m-padding_around">
+    <div class="slds-m-padding_around slds-m-left_small slds-m-bottom_small slds-m-right_small">
         <template if:false={selectedRecord} >
             <template if:true={records}>
                 <template for:each={records} for:item="rec" for:index="index">
@@ -20,10 +20,10 @@
             </template>
         </template>
         <template if:true={selectedRecord} >
-            <label class="slds-form-element__label" for="unique-id-of-input">
+            <label class="slds-form-element__label slds-m-left_small slds-m-bottom_small slds-m-right_small" for="unique-id-of-input">
                     {label}
             </label>
-            <div class="slds-pill-container">
+            <div class="slds-pill-container slds-m-bottom_small slds-m-right_small">
                 <lightning-pill class="pillSize" 
                         href="JavaScript:void(0);"
                         label={selectedRecord.Name} 
