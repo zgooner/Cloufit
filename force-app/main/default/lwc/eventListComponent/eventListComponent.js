@@ -67,13 +67,12 @@ export default class EventListComponent extends NavigationMixin(LightningElement
         let eventId = JSON.stringify(event.detail.row.Id).replaceAll('\"', '');
 
         this[NavigationMixin.Navigate]({
-            type: "standard__component",
+            type: "standard__recordPage",
             attributes: {
-                componentName: "c__navigateToEventDetails"
+                objectApiName: 'Event__c',
+                actionName: 'view',
+                recordId: eventId
             },
-            state: {
-                c__recordId: eventId
-            }
         });
     }
 
