@@ -40,7 +40,7 @@ const columns = [
     },
     {
         label: 'Details',
-        fieldName: 'Event_Details__c',
+        fieldName: 'Event_Detail__c',
         type: 'text',
     }
 ];
@@ -57,6 +57,9 @@ export default class EventListComponent extends NavigationMixin(LightningElement
     wiredEvents({error, data}) {
         if (data) {
             this.allEvents = flattenData(data);
+            const temp = JSON.stringify(this.allEvents);
+            this.allEvents = JSON.parse(temp.replaceAll('<p>', '').replaceAll('</p>', ''));
+
         } else if (error) this.error = error;
     }
 
@@ -100,8 +103,8 @@ export default class EventListComponent extends NavigationMixin(LightningElement
             if (data) {
                 this.allEvents = flattenData(data);
             }
-            console.log(JSON.stringify(data));
-            console.log(this.allEvents);
+            const temp = JSON.stringify(this.allEvents);
+            this.allEvents = JSON.parse(temp.replaceAll('<p>', '').replaceAll('</p>', ''));
         })
         .catch((error) => {
             window.console.log(' error ', error);
