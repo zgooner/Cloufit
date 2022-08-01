@@ -58,7 +58,7 @@ export default class EventListComponent extends NavigationMixin(LightningElement
         if (data) {
             this.allEvents = flattenData(data);
             const temp = JSON.stringify(this.allEvents);
-            this.allEvents = JSON.parse(temp.replaceAll('<p>', '').replaceAll('</p>', ''));
+            this.allEvents = JSON.parse(temp.replaceAll(/(<([^>]+)>)/gi, ''));
 
         } else if (error) this.error = error;
     }
@@ -104,7 +104,7 @@ export default class EventListComponent extends NavigationMixin(LightningElement
                 this.allEvents = flattenData(data);
             }
             const temp = JSON.stringify(this.allEvents);
-            this.allEvents = JSON.parse(temp.replaceAll('<p>', '').replaceAll('</p>', ''));
+            this.allEvents = JSON.parse(temp.replaceAll(/(<([^>]+)>)/gi, ''));
         })
         .catch((error) => {
             window.console.log(' error ', error);
