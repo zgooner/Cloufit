@@ -8,7 +8,7 @@
     @isTest static void gettingEventLocation() {
         Event__c ev = [SELECT Id FROM Event__C LIMIT 1];
         List<Location__c> loc = LocationController.getEventLocation(ev.Id);
-        
+        //powinniśmy zassertować wartości, nie liczbę
         System.assertEquals(1, loc.size());
     }
 }
