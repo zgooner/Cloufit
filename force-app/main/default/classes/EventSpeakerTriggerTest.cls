@@ -2,7 +2,7 @@
 public class EventSpeakerTriggerTest {
     
     @testSetup static void setup() {
-        
+        //tu nic nie ma :(  a mogłybyć np. Speakerzy, eventy... :)
     }
     
     @isTest static void validInsert() {
