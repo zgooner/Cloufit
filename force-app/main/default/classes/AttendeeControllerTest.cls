@@ -19,7 +19,7 @@ public class AttendeeControllerTest {
     static void searchingForAttendeesWithEvents() {
         Event__c ev = [SELECT Id FROM Event__c LIMIT 1];
         List<Attendee__c> attendees = AttendeeController.getEventAttendees(ev.Id);
-        System.debug(attendees.size());
+        System.debug(attendees.size());  //wyrzuć debugi. Starajmy się dostarczać czysty kod
         System.debug(ev);
         System.assertEquals(1, attendees.size());
     }
