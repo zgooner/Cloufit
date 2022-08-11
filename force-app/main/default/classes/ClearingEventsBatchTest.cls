@@ -14,6 +14,7 @@ public class ClearingEventsBatchTest {
         	eventsToDelete.add(new Event__c(Event_Organizer__c=evOrg[i].Id, Start_DateTime__c=dtStart[0], End_Date_Time__c=dtEnd[0], Max_Seats__c=100));
             eventsToStay.add(new Event__c(Event_Organizer__c=evOrg[i].Id, Start_DateTime__c=dtStart[1], End_Date_Time__c=dtEnd[1], Max_Seats__c=100));
         }
+        //można przecież dodać do tej samej listy i zrobić jeden insert. SF sobie sam to bulkuje, więc tym sposobem będzie dużo wydajniej :)
         insert eventsToDelete;
         insert eventsToStay;
     }
@@ -22,7 +23,7 @@ public class ClearingEventsBatchTest {
         Test.startTest();
         Database.executeBatch(new ClearingEventsBatch());
         Test.stopTest();
-        
+        //bardzo fajnie, że testujesz z większą ilością rekordów. SF defaultowo dzieli rekordy na paczki po 200 sztuk, więc fajnie byłoby sprawdzić, co się stanie gdy będzie 250
         System.assertEquals(150, [SELECT count() FROM Event__c]);
     }
     
