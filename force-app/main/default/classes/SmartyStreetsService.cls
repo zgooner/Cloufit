@@ -17,7 +17,7 @@ public class SmartyStreetsService {
                 return true;
             } 
          } catch (System.CalloutException e) {
-             System.debug(e);
+             ErrorLogHandler.createErrorLog('SmartyAPI', e.getStackTraceString(), System.now());
          }
         
         return false;

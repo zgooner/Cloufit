@@ -1,20 +1,14 @@
 <template>
-    <template for:each={locationDetails.data} for:item='details'>
-        <div key={details.id}>
-            <template if:true={details.Land_Mark__c}>
-                <p>Location Landmark - </p>
-                <lightning-formatted-text value={details.Land_Mark__c}></lightning-formatted-text>
-            </template>
-            <lightning-formatted-address 
-                street={details.Street__c}
-                city={details.City__c}
-                country={details.Country__c}
-                province={details.State__c}
-                postal-code={details.Postal_Code__c}
-            ></lightning-formatted-address>
-        </div>
+    <template if:true={Landmark}>
+    <p>Location Landmark- {Landmark}</p>
     </template>
-    <template if:true={locationDetails.error}>
-        {speakers.error}
-    </template>
+
+    <lightning-formatted-address
+        street={Street}  
+        city={City}
+        country={Country}
+        province={State}
+        postal-code={PostalCode}
+    ></lightning-formatted-address>
+
 </template>

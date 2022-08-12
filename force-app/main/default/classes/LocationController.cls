@@ -1,12 +1,5 @@
 public with sharing class LocationController {
     
-    @AuraEnabled(cacheable=true)
-    public static List<Location__c> getEventLocation(String eventId) {
-        //gdyby udało się przekazać ID tego Location__c, to querowanie Eventu byłoby zbędne. Sprawdź proszę czy to możliwe
-        Event__c event = [SELECT Id, Location__c FROM Event__c WHERE Id=:eventId LIMIT 1];
-        List<Location__c> location = [SELECT Id, City__c, Country__c, Land_Mark__c, Name, Postal_Code__c, State__c, Street__c, Verified__c
-                                            FROM Location__c WHERE Id=:event.Location__c];
+    // FUNKCJA getEventLocation USUNIETA Z UZYTKU - zostawiam dla adnotacji
 
-        return location;
-    }
 }

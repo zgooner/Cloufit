@@ -12,7 +12,9 @@ public class DailyBatchTest {
         
         System.assertEquals(cronEXP, ct.CronExpression);
         System.assertEquals(0, ct.TimesTriggered);
-        System.assertEquals('2022-07-26 23:00:00', String.valueOf(ct.NextFireTime));
+
+
+        System.assertEquals('2022-08-12 23:00:00', String.valueOf(ct.NextFireTime));
         Test.stopTest();
     }
 }
